@@ -1,6 +1,8 @@
 {
   "permissions": {
     "allow": [
+      "Read",
+      "WebFetch",
       "Bash(find:*)",
       "mcp__task-master-ai__parse_prd",
       "mcp__task-master-ai__update_task",
@@ -22,7 +24,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -30,7 +32,10 @@
   "sandbox": {
     "enabled": true,
     "filesystem": {
-      "allowWrite": ["/tmp", "/home/azureuser/claw-eval/tasks_claude_v1"]
+      "allowWrite": [
+        "/tmp",
+        "/home/azureuser/claw-eval/tasks_claude_v1"
+      ]
     }
   },
   "alwaysThinkingEnabled": true,
