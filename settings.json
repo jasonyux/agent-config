@@ -1,14 +1,37 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh:*)",
-      "Bash(git:*)"
+      "Bash(find:*)",
+      "mcp__task-master-ai__parse_prd",
+      "mcp__task-master-ai__update_task",
+      "mcp__task-master-ai__get_task",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(npx eslint:*)"
     ],
-    "deny": []
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(sudo:*)",
+      "Bash(git:*)",
+      "Bash(git * *)"
+    ],
+    "defaultMode": "default"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.sh"
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "allowWrite": ["/tmp", "/home/azureuser/claw-eval/tasks_claude_v1"]
+    }
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true
